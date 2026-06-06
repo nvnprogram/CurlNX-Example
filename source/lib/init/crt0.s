@@ -19,9 +19,6 @@ __module_start:
     b entrypoint
     .word __nx_mod0 - __module_start
 
-    .align 4
-    .ascii "~~exlaunch uwu~~"
-
 entrypoint:
    // Arguments on NSO entry:
     //   x0=zero                  | x1=main thread handle
@@ -36,6 +33,9 @@ entrypoint:
     ccmn x1, #1, #4, ne // 4 = Z
     beq  get_module_info
     b exl_exception_entry
+    
+    .align 4
+    .ascii "~~exlaunch uwu~~"
 
 get_module_info:
     // Get start of our module

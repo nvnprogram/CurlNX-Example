@@ -12,8 +12,9 @@
 */
 
 namespace exl::setting {
-    /* How large the fake .bss heap will be. */
-    constexpr size_t HeapSize = 0x5000;
+    /* How large the fake .bss heap will be. Holds the 6 MB nn::socket pool plus
+       all of libcurl's allocations, so it is sized generously. */
+    constexpr size_t HeapSize = 0xF00000; /* 15 MB */
 
     /* How large the JIT area will be for hooks. */
     constexpr size_t JitSize = 0x1000;

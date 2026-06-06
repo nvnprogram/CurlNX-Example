@@ -52,13 +52,13 @@ CXXFLAGS	:= $(CFLAGS) $(EXL_CXXFLAGS) -fno-rtti -fno-exceptions -fno-asynchronou
 ASFLAGS	:=	-g $(ARCH)
 LDFLAGS	:=  -specs=$(SPECS_PATH)/$(SPECS_NAME) -g $(ARCH) -Wl,-Map,$(notdir $*.map) -nostartfiles
 
-LIBS	:=
+LIBS	:=	-lcurl
 
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing
 # include and lib
 #---------------------------------------------------------------------------------
-LIBDIRS	:=
+LIBDIRS	:=	$(TOPDIR)/lib
 
 #---------------------------------------------------------------------------------
 # no real need to edit anything past this point unless you need to add additional
@@ -148,7 +148,9 @@ all	:	$(OUTPUT).nso
 
 $(OUTPUT).nso	:	$(OUTPUT).elf $(OUTPUT).npdm
 
-$(OUTPUT).elf	:	$(OFILES)
+EXL_STATIC_LIBS	:=	$(wildcard $(foreach dir,$(LIBDIRS),$(dir)/lib/libcurl.a))
+
+$(OUTPUT).elf	:	$(OFILES) $(EXL_STATIC_LIBS)
 
 $(OFILES_SRC)	: $(HFILES_BIN)
 

@@ -1,9 +1,7 @@
-# exlaunch
-A framework for injecting C/C++ code into Nintendo Switch applications/applet/sysmodules.
-
-> [!NOTE]
-> This project is a work in progress. If you have issues, reach out to `shad0w0.` on Discord.
+# CurlNX-Example
+An example for using curl library linked against nnSdk
 
 # Credit
-- Atmosphère: A great reference and guide.
-- oss-rtld: Included for (pending) interop with rtld in applications (License [here](https://github.com/shadowninja108/exlaunch/blob/main/source/lib/reloc/rtld/LICENSE.txt)).
+- shadowninja108: ![exlaunch](https://github.com/shadowninja108/exlaunch)
+- curl - libcurl
+- nvnprogram - ![CurlNX](https://github.com/nvnprogram/CurlNX)
